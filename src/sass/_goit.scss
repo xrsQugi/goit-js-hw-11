@@ -103,5 +103,6 @@ button{
     padding: 0 20px;
     margin: 20px;
     display: none;
+    transition: .4s display ease-in-out;
   }
 }

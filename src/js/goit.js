@@ -16,7 +16,7 @@ export async function fetchImages (api) {
 }
 
 export let page = 1;
-export let per_page = 5;
+export let per_page = 40;
 
 export function renderImages(images) {
     if(images == ""){
@@ -27,7 +27,7 @@ export function renderImages(images) {
         loadMore.style.display = 'block';
 
         images.forEach(image => {
-            gallery.insertAdjacentHTML("beforeend", 
+            gallery.insertAdjacentHTML("afterbegin", 
             `<div class="photo-card">
                 <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
                 <div class="info">
@@ -88,6 +88,7 @@ export function calculateImages(images) {
     const total = Math.ceil(images/per_page) + 1;
     if(total < page){
         Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
+        loadMore.style.display = 'none';
     }
 }
 
